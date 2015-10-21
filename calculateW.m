@@ -1,14 +1,6 @@
 function [W] = calculateW(m, train_x, train_y, lambda)
 % data should use column vector
-train_y
-    if(nargin == 3)
-        lambda = 0;
-    elseif(nargin == 4)
-    else
-        msg = 'Argument number is incorrect!';
-        error(msg)
-    end
-    
+
     A = zeros(m + 1);
     if(m >= 1) 
         for i = 1:m + 1
@@ -25,9 +17,8 @@ train_y
     B(1, 1) = sum(train_y); 
     if(m >= 1) 
         for i = 1:m
-            B(i + 1, 1) = sum(train_y .* (train_x .^ i)); 
+            B(i + 1, 1) = sum(train_y .* (train_x .^ i));
         end
     end
-    B(1, 1)
     
-    W = inv(A) * B;
+    W = A\B;

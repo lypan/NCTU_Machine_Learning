@@ -2,7 +2,7 @@
 load x2.mat
 load t2.mat
 
-number = 20;
+number = 80;
 max_order = 9;
 train_x = x2(1:number, :);
 train_y = t2(1:number, :);
@@ -10,7 +10,7 @@ test_x = x2(end-20+1:end, :);
 test_y = x2(end-20+1:end, :);
 
 
-% 1.(a)
+% 1g.(a)
 M = ones(max_order, 1);
 Train_Predict_Error = ones(max_order + 1, 1);
 Test_Predict_Error = ones(max_order + 1, 1);
@@ -32,7 +32,7 @@ end
 table(M, Train_Predict_Error, Test_Predict_Error)
 
 
-% 1.(b)
+% 1g.(b)
 line_x = [0:0.01:2]';
 for i = 0:max_order
     if(i == 0 || i == 5)
@@ -59,7 +59,7 @@ for i = 0:max_order
 end
 
 
-% 1.(c)
+% 1g.(c)
 length_w = cellfun(@length, Train_Predict_w);
 temp_cell_w = cell(size(Train_Predict_w, 1), 1);
 for i = 1:size(Train_Predict_w, 1)
@@ -81,7 +81,7 @@ w9 = matrix_w(10, :)';
 table(M, w0, w1, w2, w3, w4 ,w5, w6, w7, w8, w9)
 
 
-% 1.(d)
+% 1g.(d)
 M_lambda1 = ones(max_order, 1);
 Train_Predict_Error_lambda1 = ones(max_order + 1, 1);
 Test_Predict_Error_lambda1 = ones(max_order + 1, 1);
@@ -131,7 +131,7 @@ table(Lambda_Value2, M_lambda2, Train_Predict_Error_lambda2, Test_Predict_Error_
 
 
 
-% 1.(e)
+% 1g.(e)
 line_x = [0:0.01:2]';
 for i = 0:max_order
     if(i == 0 || i == 5)
@@ -182,7 +182,7 @@ for i = 0:max_order
 end
 
 
-% 1.(f)
+% 1g.(f)
 length_w = cellfun(@length, Train_Predict_w_lambda1);
 temp_cell_w = cell(size(Train_Predict_w_lambda1, 1), 1);
 for i = 1:size(Train_Predict_w_lambda1, 1)
@@ -222,6 +222,3 @@ w8 = matrix_w(9, :)';
 w9 = matrix_w(10, :)';
 
 table(Lambda_Value2, M_lambda2, w0, w1, w2, w3, w4 ,w5, w6, w7, w8, w9)
-
-% 1.(g)
-% see the Hw1Q2g file
