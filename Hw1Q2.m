@@ -19,10 +19,10 @@ Train_Predict_w = cell(max_order + 1, 1);
 for i = 0:max_order
     m = i;
     [predict_train_y, W, train_E] = line_fit(train_x, train_y, m);
-    train_E = sqrt(2 * train_E / number);
+    train_E = sqrt(2 * train_E / size(train_x, 1));
     
     predict_test_y = calculateY(W, test_x, m);
-    test_E = sqrt(calculateE(predict_test_y, test_y) * 2 / number);
+    test_E = sqrt(calculateE(predict_test_y, test_y) * 2 / size(test_x, 1));
     
     M(i + 1, 1) = m;
     Train_Predict_Error(i + 1, 1) = train_E;
@@ -92,10 +92,10 @@ lambda1 = 0.1;
 for i = 0:max_order
     m = i;
     [predict_train_y, W, train_E] = line_fit(train_x, train_y, m, lambda1);
-    train_E = sqrt(train_E * 2 / number);
+    train_E = sqrt(train_E * 2 / size(train_x, 1));
     
     predict_test_y = calculateY(W, test_x, m);
-    test_E = sqrt(calculateE(predict_test_y, test_y) * 2 / number);
+    test_E = sqrt(calculateE(predict_test_y, test_y) * 2 / size(test_x, 1));
     
     M_lambda1(i + 1, 1) = m;
     Lambda_Value1(i + 1, 1) = lambda1;
@@ -116,10 +116,10 @@ lambda2 = 0.001;
 for i = 0:max_order
     m = i;
     [predict_train_y, W, train_E] = line_fit(train_x, train_y, m, lambda2);
-    train_E = sqrt(train_E * 2 / number);
+    train_E = sqrt(train_E * 2 / size(train_x, 1));
     
     predict_test_y = calculateY(W, test_x, m);
-    test_E = sqrt(calculateE(predict_test_y, test_y) * 2 / number);
+    test_E = sqrt(calculateE(predict_test_y, test_y) * 2 / size(test_x, 1));
     
     M_lambda2(i + 1, 1) = m;
     Lambda_Value2(i + 1, 1) = lambda2;
