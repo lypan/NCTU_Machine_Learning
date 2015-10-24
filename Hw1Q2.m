@@ -29,7 +29,8 @@ for i = 0:max_order
     Test_Predict_Error(i + 1, 1) = test_E;
     Train_Predict_w{i + 1} = W;
 end
-table(M, Train_Predict_Error, Test_Predict_Error)
+cT = table(M, Train_Predict_Error, Test_Predict_Error);
+cT.Properties.VariableNames = {'Order' 'Train_RMS' 'Test_RMS'}
 
 
 % 1.(b)
@@ -50,8 +51,8 @@ for i = 0:max_order
     hold on;
     xlabel('x value');  
     ylabel('y value');  
-    title(sprintf('m = %d', i));
-    legend('true y', 'predict y');
+    title(sprintf('M = %d', i));
+    legend('train y', 'predict y');
     
     if(i == 4 || i == 9)
        hold off; 
@@ -78,8 +79,8 @@ w7 = matrix_w(8, :)';
 w8 = matrix_w(9, :)';
 w9 = matrix_w(10, :)';
 
-table(M, w0, w1, w2, w3, w4 ,w5, w6, w7, w8, w9)
-
+cT = table(M, w0, w1, w2, w3, w4 ,w5, w6, w7, w8, w9);
+cT.Properties.VariableNames{'M'} = 'Order'
 
 % 1.(d)
 M_lambda1 = ones(max_order, 1);
@@ -103,7 +104,8 @@ for i = 0:max_order
     Test_Predict_Error_lambda1(i + 1, 1) = test_E;
     Train_Predict_w_lambda1{i + 1} = W;
 end
-table(Lambda_Value1, M_lambda1, Train_Predict_Error_lambda1, Test_Predict_Error_lambda1)
+cT = table(Lambda_Value1, M_lambda1, Train_Predict_Error_lambda1, Test_Predict_Error_lambda1);
+cT.Properties.VariableNames = {'Lambda' 'Order' 'Train_RMS' 'Test_RMS'}
 
 
 M_lambda2 = ones(max_order, 1);
@@ -127,7 +129,8 @@ for i = 0:max_order
     Test_Predict_Error_lambda2(i + 1, 1) = test_E;
     Train_Predict_w_lambda2{i + 1} = W;
 end
-table(Lambda_Value2, M_lambda2, Train_Predict_Error_lambda2, Test_Predict_Error_lambda2)
+cT = table(Lambda_Value2, M_lambda2, Train_Predict_Error_lambda2, Test_Predict_Error_lambda2);
+cT.Properties.VariableNames = {'Lambda' 'Order' 'Train_RMS' 'Test_RMS'}
 
 
 
@@ -201,8 +204,10 @@ w7 = matrix_w(8, :)';
 w8 = matrix_w(9, :)';
 w9 = matrix_w(10, :)';
 
-table(Lambda_Value1, M_lambda1, w0, w1, w2, w3, w4 ,w5, w6, w7, w8, w9)
-
+cT = table(Lambda_Value1, M_lambda1, w0, w1, w2, w3, w4 ,w5, w6, w7, w8, w9);
+cT.Properties.VariableNames{'Lambda_Value1'} = 'Lmbda';
+cT.Properties.VariableNames{'M_lambda1'} = 'Order';
+cT
 length_w = cellfun(@length, Train_Predict_w_lambda2);
 temp_cell_w = cell(size(Train_Predict_w_lambda2, 1), 1);
 for i = 1:size(Train_Predict_w_lambda2, 1)
@@ -221,7 +226,9 @@ w7 = matrix_w(8, :)';
 w8 = matrix_w(9, :)';
 w9 = matrix_w(10, :)';
 
-table(Lambda_Value2, M_lambda2, w0, w1, w2, w3, w4 ,w5, w6, w7, w8, w9)
-
-% 1.(g)
-% see the Hw1Q2g file
+cT = table(Lambda_Value2, M_lambda2, w0, w1, w2, w3, w4 ,w5, w6, w7, w8, w9);
+cT.Properties.VariableNames{'Lambda_Value2'} = 'Lmbda';
+cT.Properties.VariableNames{'M_lambda2'} = 'Order';
+cT
+% % 1.(g)
+% % see the Hw1Q2g file
