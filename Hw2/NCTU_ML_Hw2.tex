@@ -1,0 +1,56 @@
+		\documentclass[]{article}
+		\usepackage{amsmath}
+		\usepackage{graphicx}
+		\usepackage{float}
+		%opening
+		\title{NCTU Machine Learning Hw2}
+		\author{Liang Yu Pan 0486016}
+		
+		\begin{document}
+			
+			\maketitle
+			\section{Information Theory}
+			
+				\subsection*{(a)}
+					\paragraph{Overview}
+					We use the differential entropy theorem with \textbf{Lagrange multipliers} to prove that the probability distribution which maximize the differential entropy is \textbf{Gaussian distribution}.
+				\paragraph{Useful formula}
+						\begin{align}
+					H(x) = - &\int p(x)\ln{p(x)} dx\\
+					&\int_{-\infty}^{\infty} p(x) dx = 1\\
+					&\int_{-\infty}^{\infty} x p(x) dx = \mu\\
+				    &\int_{-\infty}^{\infty} (x - \mu)^{2} p(x) dx = \sigma^{2}
+					\end{align}
+				\paragraph{Solve p(x)}
+						By \textbf{Lagrange multipliers} and formula(1),(2),(3),(4), we get the formula 
+						\begin{align}
+						L &= - \int_{-\infty}^{\infty} p(x)\ln{p(x)} dx + \lambda_{1}(\int_{-\infty}^{\infty} p(x) dx - 1) + \lambda_{2}(\int_{-\infty}^{\infty} xp(x) dx - \mu) + \lambda_{3}(\int_{-\infty}^{\infty} (x - \mu)^{2} p(x) dx - \sigma^{2})			
+		\end{align}								
+		
+						
+						Then solve $\frac{\delta{L}}{\delta{p(x)}} = 0$, $\frac{\delta{L}}{\delta{p(x)}} = -\ln{p(x)} - 1 + \lambda_{1} + \lambda_{2} x + \lambda_{3}(x - \mu)^{2}$
+						
+						We get 
+						\begin{align}
+						p(x) &= e^{- 1 + \lambda_{1} + \lambda_{2} x + \lambda_{3}(x - \mu)^{2}}				
+		\end{align}								
+		
+						
+						Substitute (6) into (2), (3), (4), we can get 
+						\begin{align}
+						\lambda_{1} &= 1 - \frac{1}{2} \ln{2\pi \sigma^{2}}\\
+						\lambda_{2} &= 0\\
+						\lambda_{3} &= \frac{1}{2\sigma^{2}}  
+						\end{align}
+						
+						Then substitute (7),(8),(9) into (5), we can get
+						\begin{align}
+						p(x) = \frac{1}{2\pi\sigma^{2}}e\lbrace-\frac{(x-\mu)^{2}}{2\sigma^{2}}\rbrace
+						\end{align}
+						which is \textbf{Gaussian distribution}.
+		\subsection*{(b)}
+				\paragraph*{derive entropy}
+				Substitute (10) into (1), we get $\frac{1}{2}(\ln{2\pi\sigma^{2}}+1)$
+						
+						
+\end{document}
