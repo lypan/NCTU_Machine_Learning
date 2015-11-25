@@ -7,7 +7,7 @@ max_order = 9;
 train_x = x2(1:number, :);
 train_y = t2(1:number, :);
 test_x = x2(end-20+1:end, :);
-test_y = x2(end-20+1:end, :);
+test_y = t2(end-20+1:end, :);
 
 
 % 1g.(a)

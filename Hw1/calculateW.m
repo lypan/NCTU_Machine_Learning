@@ -11,7 +11,7 @@ function [W] = calculateW(m, train_x, train_y, lambda)
         
     end
     A(1, 1) = size(train_x, 1);
-    A = A + eye(m + 1) * lambda / 2;
+    A = A + eye(m + 1) * lambda;
     
     B = zeros(m + 1, 1);
     B(1, 1) = sum(train_y); 
