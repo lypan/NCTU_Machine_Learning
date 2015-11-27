@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.23)  26 NOV 2015 00:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.23)  27 NOV 2015 14:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -205,32 +205,89 @@ Overfull \hbox (109.81451pt too wide) in paragraph at lines 28--28
 [1
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2] (./NCTU_ML_Hw2.aux) ) 
+Overfull \hbox (19.20955pt too wide) in paragraph at lines 63--63
+[] 
+ []
+
+<2b1.jpg, id=18, 1445.4pt x 732.7375pt>
+File: 2b1.jpg Graphic file (type jpg)
+ <use 2b1.jpg>
+Package pdftex.def Info: 2b1.jpg used on input line 71.
+(pdftex.def)             Requested size: 413.99895pt x 209.87216pt.
+
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 71--72
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--74
+
+ []
+
+<2b2.jpg, id=19, 1445.4pt x 732.7375pt>
+File: 2b2.jpg Graphic file (type jpg)
+ <use 2b2.jpg>
+Package pdftex.def Info: 2b2.jpg used on input line 77.
+(pdftex.def)             Requested size: 413.99895pt x 209.87216pt.
+
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 77--78
+ [][] 
+ []
+
+[2] <2b3.jpg, id=25, 1445.4pt x 732.7375pt>
+File: 2b3.jpg Graphic file (type jpg)
+ <use 2b3.jpg>
+Package pdftex.def Info: 2b3.jpg used on input line 83.
+(pdftex.def)             Requested size: 413.99895pt x 209.87216pt.
+
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 83--84
+ [][] 
+ []
+
+[3 <./2b1.jpg> <./2b2.jpg>] <3a2.jpg, id=29, 1445.4pt x 852.18375pt>
+File: 3a2.jpg Graphic file (type jpg)
+
+<use 3a2.jpg>
+Package pdftex.def Info: 3a2.jpg used on input line 104.
+(pdftex.def)             Requested size: 413.99895pt x 244.08418pt.
+
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 104--105
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--107
+
+ []
+
+[4 <./2b3.jpg>] [5 <./3a2.jpg>] (./NCTU_ML_Hw2.aux) ) 
 Here is how much of TeX's memory you used:
- 2144 strings out of 493089
- 29027 string characters out of 6134841
- 94899 words of memory out of 5000000
- 5618 multiletter control sequences out of 15000+600000
+ 2173 strings out of 493089
+ 29318 string characters out of 6134841
+ 95931 words of memory out of 5000000
+ 5641 multiletter control sequences out of 15000+600000
  9023 words of font info for 33 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 37i,9n,23p,253b,191s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmmi7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr5.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
-0.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.
-pfb>
-Output written on NCTU_ML_Hw2.pdf (2 pages, 123150 bytes).
+ 37i,10n,23p,253b,228s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2015/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2015/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2015/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2015/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmsy7.pfb>
+Output written on NCTU_ML_Hw2.pdf (5 pages, 340611 bytes).
 PDF statistics:
- 59 PDF objects out of 1000 (max. 8388607)
- 42 compressed objects within 1 object stream
+ 80 PDF objects out of 1000 (max. 8388607)
+ 54 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
