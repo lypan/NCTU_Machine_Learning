@@ -18,7 +18,7 @@ H2 = zeros(14, 14);
 H3 = zeros(14, 14);
 Error = [];
 %% 
-for i = 1:5
+for i = 1:100
     % update Y
     Y = posterior(X, W);
     % calculate gradient
@@ -29,15 +29,12 @@ for i = 1:5
     H3 = hessian(X, Y, 3);
     % update W
     for j = 1:class_num
-        W(j, :) =  (W(j, :)' - hessian(X, Y, j)\G(j, :)')';
+        W(j, :) =  (W(j, :)' - pinv(hessian(X, Y, j)) * G(j, :)')';
     end
-%     W(1, :) =  (W(1, :)' - H1\G(1, :)')';
-%     W(2, :) =  (W(2, :)' - H2\G(2, :)')';
-%     W(3, :) =  (W(3, :)' - H3\G(3, :)')';
     E = sum(sum(G .^ 2));
     Error = [Error E];
 end
 figure;
-Index = [1:5];
+Index = [1:100];
 plot(Index, Error);
 

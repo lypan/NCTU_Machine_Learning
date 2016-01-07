@@ -1,3 +1,4 @@
+tic;
 [train, test] = DataPrep('C:\Users\lypan\Documents\GitHub\NCTU_Machine_Learning\Hw3');
 %% 
 X = train.images;
@@ -28,8 +29,9 @@ Z3 = zeros(10, batch_num);
 D1 = zeros(hidden_node_num, batch_num);
 D2 = zeros(hidden_node_num, batch_num);
 D3 = zeros(10, batch_num);
+Error = [];
 %% 
-for index = 1:max_iter
+for index = 1:10
     for i = 1:50000/50
         % select min batch data 
         idx_start = (i - 1) * 50 + 1;
@@ -97,3 +99,4 @@ for index = 1:max_iter
     
     % calculate misclassification rate
 end
+toc;
