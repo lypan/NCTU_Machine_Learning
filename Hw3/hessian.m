@@ -11,6 +11,6 @@ temp = zeros(14, 14);
 for i = 1:size(X, 1)
     temp = temp + Y(i, K) * (1 - Y(i, K)) * X(i, :)' * X(i, :);
 end
-H = -temp;
+H = temp;
 
 
