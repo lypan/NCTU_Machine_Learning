@@ -18,7 +18,8 @@ H2 = zeros(14, 14);
 H3 = zeros(14, 14);
 Error = [];
 %% 
-for i = 1:100
+n = 10;
+for i = 1:n
     % update Y
     Y = posterior(X, W);
     % calculate gradient
@@ -35,6 +36,6 @@ for i = 1:100
     Error = [Error E];
 end
 figure;
-Index = [1:100];
+Index = [1:n];
 plot(Index, Error);
 
