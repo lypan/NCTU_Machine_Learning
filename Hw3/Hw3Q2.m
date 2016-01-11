@@ -1,14 +1,25 @@
 tic;
-% [train, test] = DataPrep('C:\Users\lypan\Documents\GitHub\NCTU_Machine_Learning\Hw3');
-[train, test] = DataPrep('/Users/liangyupan/GitHub/NCTU_Machine_Learning/Hw3');
+[train, test] = DataPrep('C:\Users\lypan\Documents\GitHub\NCTU_Machine_Learning\Hw3');
+% [train, test] = DataPrep('/Users/liangyupan/GitHub/NCTU_Machine_Learning/Hw3');
 %% 
 X = train.images;
 X = [X; ones(1, 50000)];
 % 1 of k coding, add 1 from 0~9 to 1~10 class labels
 t = train.labels + ones(size(train.labels, 1), 1);
-T = zeros(50000,10);
+T = zeros(50000, 10);
 T(sub2ind(size(T),1:50000,t')) = 1;
 T = T';
+T_M = train.labels + 1;
+T_M = T_M';
+
+X_t = test.images;
+X_t = [X_t; ones(1, 10000)];
+tt = test.labels + ones(size(test.labels, 1), 1);
+TT = zeros(10000, 10);
+TT(sub2ind(size(TT),1:10000,tt')) = 1;
+TT = TT';
+TT_M = test.labels + 1;
+TT_M = TT_M';
 
 learning_rate = 0.001;
 hidden_node_num = 50;
@@ -31,9 +42,11 @@ D2 = zeros(hidden_node_num, batch_num);
 D3 = zeros(10, batch_num);
 Error = [];
 Miss = [];
+Error_t = [];
+Miss_t = [];
 %% 
 test_num = 1000;
-epoch_num = 500;
+epoch_num = 2000;
 for epoch_idx = 1:epoch_num
     for i = 1:test_num
         % select min batch data 
@@ -65,6 +78,7 @@ for epoch_idx = 1:epoch_num
         W1 = W1 - learning_rate * D1 * Batch_X' / 50;
     end
     % calculate y
+    % train data
     % layer 1 summation
     YA1 = W1 * X(:, 1:test_num * 50);
     YZ1 = (YA1 > 0) .* YA1;
@@ -77,11 +91,52 @@ for epoch_idx = 1:epoch_num
     % calculate error
     E = cross_entropy(T(:, 1:test_num * 50), YZ3);
     % calculate misclassification rate
-%     M = sum(sum(T(:, 1:test_num * 50) - YZ3));
+    [Me, MI] = max(YZ3);
+    M = sum(T_M ~= MI);
     Error = [Error E];
-%     Miss = [Miss M];
+    Miss = [Miss M];
+    
+    % test data
+    % layer 1 summation
+    YA1 = W1 * X_t;
+    YZ1 = (YA1 > 0) .* YA1;
+    % layer 2 summation
+    YA2 = W2 * YZ1;
+    YZ2 = (YA2 > 0) .* YA2;
+    % layer 3 summation
+    YA3 = W3 * YZ2;
+    YZ3 = neural_posterior(YA3);
+    % calculate error
+    E_t = cross_entropy(TT, YZ3);
+    % calculate misclassificationc rate
+    [Me_t, MI_t] = max(YZ3);
+    M_t = sum(TT_M ~= MI_t);
+    Error_t = [Error_t E_t];
+    Miss_t = [Miss_t M_t];
 end
+%%
 figure;
 Index = [1:epoch_num];
 plot(Index, Error);
+xlabel('Number of epochs');
+ylabel('Error');
+title('Train Error');
+figure;
+Index = [1:epoch_num];
+plot(Index, Miss_t/50000);
+xlabel('Number of epochs');
+ylabel('Error');
+title('Train Misclassification Rate');
+figure;
+Index = [1:epoch_num];
+plot(Index, Error_t);
+xlabel('Number of epochs');
+ylabel('Error');
+title('Test Error');
+figure;
+Index = [1:epoch_num];
+plot(Index, Miss_t/10000);
+xlabel('Number of epochs');
+ylabel('Error');
+title('Test Misclassification Rate');
 toc;

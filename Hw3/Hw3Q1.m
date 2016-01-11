@@ -17,9 +17,11 @@ H1 = zeros(14, 14);
 H2 = zeros(14, 14);
 H3 = zeros(14, 14);
 Error = [];
+E = 10000;
 %% 
-n = 10;
-for i = 1:n
+n = 0;
+while E > 0.001
+    n = n + 1;
     % update Y
     Y = posterior(X, W);
     % calculate gradient
@@ -33,9 +35,13 @@ for i = 1:n
         W(j, :) =  (W(j, :)' - pinv(hessian(X, Y, j)) * G(j, :)')';
     end
     E = sum(sum(G .^ 2));
-    Error = [Error E];
+    Error = [Error E]; 
 end
 figure;
 Index = [1:n];
 plot(Index, Error);
-
+xlabel('Number of epochs');
+ylabel('Error');
+title('Logistic Regression');
+YT = posterior(Test, W);
+table(YT(:, 1), 'VariableNames',{'Posterior'})
